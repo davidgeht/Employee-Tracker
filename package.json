@@ -1,0 +1,30 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "An application to manage a componies employees.",
+  "main": "EmployeeCRUD.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidgeht/Employee-Tracker.git"
+  },
+  "keywords": [
+    "NODE",
+    "MYSQL",
+    "EMPLOYEE",
+    "TRACKER"
+  ],
+  "author": "David Gehtman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidgeht/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/davidgeht/Employee-Tracker#readme",
+  "dependencies": {
+    "asciiart-logo": "^0.2.6",
+    "inquirer": "^7.0.0",
+    "mysql": "^2.17.1"
+  }
+}
