@@ -1,4 +1,4 @@
-var introSet = [
+var introSet = 
     {
         types:"list",
         message: "What would you like to do ?",
@@ -9,9 +9,9 @@ var introSet = [
                 ],
         name: "choice"
     }
-]
 
-var departmentSet = [
+
+var departmentSet = 
     {
         types:"list",
         message:"What would you like to do ?",
@@ -23,9 +23,9 @@ var departmentSet = [
         ],
         name: "choice"
     }
-]
 
-var employeeSet = [
+
+var employeeSet = 
     {
         types:"list",
         message:"What would you like to do ?",
@@ -37,8 +37,8 @@ var employeeSet = [
         ],
         name: "choice"
     }
-]
-var EmployeeViewSet = [
+
+var employeeViewSet = 
     {
         types:"list",
         message:"How would you like to view Employees ?",
@@ -51,8 +51,8 @@ var EmployeeViewSet = [
         ],
         name:"choice"
     }
-]
-var employeeUpdateSet = [
+
+var employeeUpdateSet = 
     {
         types:"list",
         message:"What would you like to update ?",
@@ -62,8 +62,8 @@ var employeeUpdateSet = [
         ],
         name:"choice"
     }
-]
-var roleSet = [
+
+var roleSet = 
     {
         types:"list",
         message:"What would you like to do ?",
@@ -75,9 +75,9 @@ var roleSet = [
         name: "choice"
 
     }
-]
 
-var roleViewSet = [
+
+var roleViewSet = 
     {
         type:"list",
         message:"How would you like to view Roles ?",
@@ -87,4 +87,16 @@ var roleViewSet = [
         ],
         name:"choice"
     }
-]
+
+
+
+
+module.exports = {
+    introSet,
+    departmentSet,
+    employeeSet,
+    employeeViewSet,
+    employeeUpdateSet,
+    roleSet,
+    roleViewSet
+};
