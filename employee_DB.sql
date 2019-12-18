@@ -24,7 +24,12 @@ id INT(10) AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30)
 );
 
-
+CREATE VIEW deparment_budget AS 
+SELECT d.name AS "department_name",
+r.salary as "salary"
+FROM employee e 
+LEFT JOIN role r ON e.role_id = r.id
+LEFT JOIN depatment d ON r.department_id = d.id;
 
 
 
