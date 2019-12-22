@@ -7,7 +7,7 @@ last_name VARCHAR(30) NOT NULL,
 role_id INT (10) NOT NULL,
 manager_id INT(10),
 CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES Role(id),
-CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES Role(id)
+CONSTRAINT fk_manager FOREIGN KEY (role_id) REFERENCES Role(id)
 );
 
 

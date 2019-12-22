@@ -16,7 +16,7 @@ var introSet =
 var departmentSet = 
     {
         name: "choice",
-        types:"list",
+        type:"list",
         message:"What would you like to do ?",
         choices: [
             "View Departments",
@@ -28,72 +28,75 @@ var departmentSet =
     };
 
 
-// var employeeSet = 
-//     {
-//         types:"list",
-//         message:"What would you like to do ?",
-//         choices:[
-//             "View Employees",
-//             "Add Employees",
-//             "Delete Employees",
-//             "Update Employee",
-//             "Go Back"
-//         ],
-//         name: "choice"
-//     }
+var employeeSet = 
+    {
+        name: "choice",
+        type:"list",
+        message:"What would you like to do ?",
+        choices:[
+            "View Employees",
+            "Add Employees",
+            "Delete Employees",
+            "Update Employees",
+            "Go Back"
+        ],
+        
+    };
 
-// var employeeViewSet = 
-//     {
-//         types:"list",
-//         message:"How would you like to view Employees ?",
-//         choices:[
-//             "View All",
-//             "View By Role",
-//             "View By Manager",
-//             "View By Department",
-//             "Go back"
-//         ],
-//         name:"choice"
-//     }
+var employeeViewSet = 
+    {
+        name:"choice",
+        type:"list",
+        message:"How would you like to view Employees ?",
+        choices:[
+            "View All",
+            "View By Role",
+            "View By Manager",
+            "Go back"
+        ],
+        
+    };
 
-// var employeeUpdateSet = 
-//     {
-//         types:"list",
-//         message:"What would you like to update ?",
-//         choice:[
-//             "Update First Name",
-//             "Update Last Name",
-//             "Update Role",
-//             "Update Manager",
-//             "Go Back"
-//         ],
-//         name:"choice"
-//     }
+var employeeUpdateSet = 
+    {
+        name:"choice",
+        type:"list",
+        message:"What would you like to update ?",
+        choices:[
+            "Update First Name",
+            "Update Last Name",
+            "Update Role",
+            "Update Manager",
+            "Go Back"
+        ],
+        
+    };
 
-// var roleSet = 
-//     {
-//         types:"list",
-//         message:"What would you like to do ?",
-//         choices:[
-//             "View Roles",
-//             "Add Roles",
-//             "Go Back"
-//         ],
-//         name: "choice"
+var roleSet = 
+    {
+        name: "choice",
+        type:"list",
+        message:"What would you like to do ?",
+        choices:[
+            "View Roles",
+            "Add Roles",
+            "Go Back"
+        ],
+        
 
-//     }
+    };
 
 
-// var roleViewSet = 
-//     {
-//         type:"list",
-//         message:"How would you like to view Roles ?",
-//         choices:[
-//             "All Roles",
-//             "By Department"
-//         ],
-//         name:"choice"
-//     }
+var roleViewSet = 
+    {
+        type:"list",
+        message:"How would you like to view Roles ?",
+        choices:[
+            "All Roles",
+            "By Department"
+        ],
+        name:"choice"
+    };
 
 
 
@@ -101,9 +104,9 @@ var departmentSet =
 module.exports = {
     introSet,
     departmentSet,
-    // employeeSet,
-    // employeeViewSet,
-    // employeeUpdateSet,
-    // roleSet,
-    // roleViewSet
+    employeeSet,
+    employeeViewSet,
+    employeeUpdateSet,
+    roleSet,
+    roleViewSet
 };

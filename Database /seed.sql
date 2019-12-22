@@ -81,6 +81,6 @@ VALUES ("Cleaner","25000","4");
 
 INSERT INTO Role(title, salary, department_id)
 VALUES ("Complaince Head","30000","5");
-SELECT * FROM Employee;
+
 
 
