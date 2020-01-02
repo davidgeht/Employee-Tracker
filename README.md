@@ -74,7 +74,7 @@ Now continue with terminal prompts and you are finished.
 
 Preview: 
 
-<img src="/Users/davidgehtman/assignments/Employee-Tracker/Preview/preview.2020-01-02 16_17_19.gif">
+<img src="Preview/preview.2020-01-02 16_17_19.gif">
 
 
 
