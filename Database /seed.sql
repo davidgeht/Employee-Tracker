@@ -1,4 +1,4 @@
-USE employee_db;
+USE nskpbbqx4x6lnjrp;
 -- seeding department table--
 
 INSERT INTO Department (name)

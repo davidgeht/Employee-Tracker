@@ -1,5 +1,5 @@
-CREATE DATABASE employee_db;
-USE employee_db;
+
+USE nskpbbqx4x6lnjrp;
 CREATE TABLE Employee(
 id INT(10) AUTO_INCREMENT PRIMARY KEY,
 first_name VARCHAR(30) NOT NULL,
@@ -27,9 +27,9 @@ name VARCHAR(30)
 CREATE VIEW deparment_budget AS 
 SELECT d.name AS "department_name",
 r.salary as "salary"
-FROM employee e 
-LEFT JOIN role r ON e.role_id = r.id
-LEFT JOIN depatment d ON r.department_id = d.id;
+FROM Employee e 
+LEFT JOIN Role r ON e.role_id = r.id
+LEFT JOIN Department d ON r.department_id = d.id;
 
 
 

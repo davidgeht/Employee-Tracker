@@ -9,16 +9,23 @@ var roleDepartment = [];
 
 var rolesArr = [];
 var employeesArr = [];
-var departArr = [];
+var departArr = []
+
+
 
 // var connection = require("./EmployeeCRUD")
-var connection = mysql.createConnection({
-    host: 'localhost',
+var connection;
+if (process.env.JAWSDB_URL){
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+}else{
+    connection = mysql.createConnection({
+    host: "yhrz9vns005e0734.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     PORT:3306,
-    user: 'root',
-    password:'30112055',
-    database:'employee_db'
+    user: 'n4t32x79qhpahe0n',
+    password:'mbpubkf5bhqmxreq',
+    database:'nskpbbqx4x6lnjrp'
 });
+}
 connection.connect(function(err) {
     if (err) throw err;
     console.log("connected as id " + connection.threadId + "\n");
