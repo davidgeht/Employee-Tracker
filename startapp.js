@@ -13,7 +13,9 @@ var departArr = []
 
 
 
+
 // var connection = require("./EmployeeCRUD")
+JAWSDB_URL = `mysql://n4t32x79qhpahe0n:mbpubkf5bhqmxreq@yhrz9vns005e0734.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/nskpbbqx4x6lnjrp`;
 var connection;
 if (process.env.JAWSDB_URL){
     connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -130,7 +132,7 @@ function roleOpt(){
 // Department funtions
 
 function viewDepart() {
-    let query = `SELECT id as ID, name as "Department" FROM department;`;
+    let query = `SELECT id as ID, name as "Department" FROM Department;`;
         connection.query(query, function(err, res) {
                 if (err) throw err;
                 printTable(res);
@@ -195,7 +197,7 @@ function viewRole(){
 }
 
 function viewAllRoles(){
-        let query = "SELECT id AS ID, title as ROLE, salary as SALARY FROM role;";
+        let query = "SELECT id AS ID, title as ROLE, salary as SALARY FROM Role;";
         connection.query(query, function(err, res) {
               if (err) throw err;
               printTable(res);
@@ -253,7 +255,7 @@ function viewAllRoles(){
         ])
         .then(function(answers){
             let departID = getDepartId(answers.department,departArr);
-            var query = `INSERT INTO role(title,salary,department_id) VALUES(?,?,${departID});`;
+            var query = `INSERT INTO Role(title,salary,department_id) VALUES(?,?,${departID});`;
             connection.query(query, [answers.title, answers.salary], function(err, res) {
                 if (err) throw err;
                 console.log(res.affectedRows + " Record INSERTED");
@@ -332,7 +334,7 @@ async function deleteEmployee() {
         )
         .then(function(answers) {
             var splitName = answers.choice.split(" ");
-            let query = `DELETE FROM employee WHERE first_name='${splitName[0]}' and last_name='${splitName[1]}';`
+            let query = `DELETE FROM Employee WHERE first_name='${splitName[0]}' and last_name='${splitName[1]}';`
             connection.query(query, function(err, res) {
                 if (err) throw err;
                 console.log(res.affectedRows + " record DELETED");
@@ -398,7 +400,7 @@ async function updateEmployee(){
                           }
                     })
                     .then(function(answers2) {
-                        let query = `UPDATE employee SET last_name='${answers2.newLastName}' WHERE first_name='${splitName[0]}' and last_name='${splitName[1]}';`
+                        let query = `UPDATE Employee SET last_name='${answers2.newLastName}' WHERE first_name='${splitName[0]}' and last_name='${splitName[1]}';`
                         connection.query(query, function(err, res) {
                             if (err) throw err;
                             console.log(res.affectedRows + " record UPDATED");
@@ -416,7 +418,7 @@ async function updateEmployee(){
                     })
                     .then(function(answers2) {
                         let roleId = getRoleID(answers2.newRole, rolesArr);
-                        let query = `UPDATE employee SET role_id='${roleId}' WHERE first_name='${splitName[0]}' and last_name='${splitName[1]}';`
+                        let query = `UPDATE Employee SET role_id='${roleId}' WHERE first_name='${splitName[0]}' and last_name='${splitName[1]}';`
                         connection.query(query, function(err, res) {
                             if (err) throw err;
                             console.log(res.affectedRows + " record UPDATED");
@@ -434,7 +436,7 @@ async function updateEmployee(){
                     })
                     .then(function(answers2) {
                         let manId = getMangID(answers2.newManager, employeesArr);
-                        let query = `UPDATE employee SET manager_id='${manId}' WHERE first_name='${splitName[0]}' and last_name='${splitName[1]}';`
+                        let query = `UPDATE Employee SET manager_id='${manId}' WHERE first_name='${splitName[0]}' and last_name='${splitName[1]}';`
                         connection.query(query, function(err, res) {
                             if (err) throw err;
                             console.log(res.affectedRows + " record UPDATED");
@@ -467,7 +469,7 @@ function viewEmployee (){
                 employeesJSON();
                 setTimeout(employeeViewManager,500);
                 break;
-            case "Go Back":
+            case "Go back":
                 employeeOpt();
                 break;
         }
@@ -480,10 +482,10 @@ function viewEmployee (){
 function employeeViewAll(){
     let query = `SELECT e.id as "ID", e.first_name as "First Name", e.last_name as "Last Name",
     r.title AS "Role", d.name as "Department", r.salary AS "Salary",
-    (select concat(emp.first_name,' ',emp.last_name) from employee as emp where e.manager_id = emp.id) AS "MANAGER"
-    FROM employee e 
-    LEFT JOIN role r ON e.role_id=r.id
-    LEFT JOIN department d ON r.department_id = d.id;`;
+    (select concat(emp.first_name,' ',emp.last_name) from Employee as emp where e.manager_id = emp.id) AS "MANAGER"
+    FROM Employee e 
+    LEFT JOIN Role r ON e.role_id=r.id
+    LEFT JOIN Department d ON r.department_id = d.id;`;
     connection.query(query, function(err, res){
         if (err) throw err;
         printTable(res);
@@ -501,7 +503,7 @@ async function employeeViewRole(){
     })
     .then(function(answers){
     let rolesID = getRoleID(answers.choice,rolesArr);
-    let query = `SELECT id AS ID, first_name as 'FIRST NAME', last_name as 'LAST NAME' FROM employee WHERE role_id=${rolesID};`;
+    let query = `SELECT id AS ID, first_name as 'FIRST NAME', last_name as 'LAST NAME' FROM Employee WHERE role_id=${rolesID};`;
     connection.query(query, function(err, res){
         if (err) throw err;
         printTable(res);
@@ -520,7 +522,7 @@ function employeeViewManager(){
     .then(async function(answers) {
         let manId = getMangID(answers.choice, employeesArr);
 
-        let query = `SELECT id AS ID, first_name as 'FIRST NAME', last_name as 'LAST NAME' FROM employee WHERE manager_id=${manId};`;
+        let query = `SELECT id AS ID, first_name as 'FIRST NAME', last_name as 'LAST NAME' FROM Employee WHERE manager_id=${manId};`;
     connection.query(query, function(err, res) {
                 if (err) throw err;
                 if(res.length === 0){
@@ -594,7 +596,7 @@ connection.query("SELECT id, first_name, last_name FROM Employee;", function (er
 }
 
 function departmentsJSON(){
-connection.query("SELECT id, name FROM department;", function (err, res) {
+connection.query("SELECT id, name FROM Department;", function (err, res) {
     res.forEach(function(row){
         roleDepartment.push(row.name);
         departArr.push({id:row.id , name:row.name});
