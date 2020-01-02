@@ -48,15 +48,15 @@ In your terminal run the following commands one at a time:
 
 
 
-\1. git clone https://github.com/davidgeht/Employee-Summary-Application.git
+1. git clone https://github.com/davidgeht/Employee-Tracker.git
 
 
 
-\2. cd Employee-Summary-Application
+2. cd Employee-Tracker
 
 
 
-\3. npm install
+3. npm install
 
 
 
@@ -64,7 +64,7 @@ Once the steps are completed and the npm packages have been installed continue w
 
 
 
-\4. node app.js
+4. node startapp.js
 
 
 
@@ -74,10 +74,7 @@ Now continue with terminal prompts and you are finished.
 
 Preview: 
 
-<img src="/Users/davidgehtman/assignments/Employee-Summary-Application/output/Preview.gif">
+<img src="/Users/davidgehtman/assignments/Employee-Tracker/Preview/preview.2020-01-02 16_17_19.gif">
 
 
 
-Screen Shots:
-
-<img src="/Users/davidgehtman/assignments/Employee-Summary-Application/output/screenshot.png">

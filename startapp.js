@@ -376,7 +376,7 @@ async function updateEmployee(){
                           }
                     })
                     .then(function(answers2) {
-                        let query = `UPDATE employee SET first_name='${answers2.newFirstName}' WHERE first_name='${splitName[0]}' and last_name='${splitName[1]}';`
+                        let query = `UPDATE Employee SET first_name='${answers2.newFirstName}' WHERE first_name='${splitName[0]}' and last_name='${splitName[1]}';`
                         connection.query(query, function(err, res) {
                             if (err) throw err;
                             console.log(res.affectedRows + " record UPDATED");
